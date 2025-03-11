@@ -1,6 +1,6 @@
 "use client"
 
-import { useOrderStore } from "@/app/orderStore";
+import { useOrderStore } from "@/store/order";
 
 export const PreviewOrder = () => {
   const { title, description, additionalItems, materials, observations } = useOrderStore();

@@ -7,16 +7,17 @@ import {
   SidebarGroupContent,
   SidebarMenu,
   SidebarMenuButton,
-  SidebarMenuItem, SidebarHeader,
+  SidebarMenuItem,
 } from "@/components/ui/sidebar"
-import { Avatar, AvatarFallback, AvatarImage } from "./avatar"
-import { Label } from "./label"
+
 import Image from "next/image"
 
 import {
   SquareTerminal,
 } from "lucide-react"
 import { NavMain as CollapseMenu } from "@/shared/components/organisms/nav-main/nav-main"
+import { SidebarHeader } from "../../molecules/sidebar-header/sidebar-header"
+
 
 const items = [
   {
@@ -61,18 +62,10 @@ const data = {
 
 export function AppSidebar() {
   return (
-    <Sidebar className="bg-white">
+    <Sidebar className="px-5 py-8">
       <SidebarContent>
         <SidebarGroup>
-          <SidebarHeader>
-            <div className="flex flex-row">
-              <Avatar className="w-5 h-5">
-                <AvatarImage src="https://github.com/shadcn.png" />
-                <AvatarFallback>LH</AvatarFallback>
-              </Avatar>
-              <Label className="ml-2 font-semibold text-sm text-[#414552]">Lucas Henrique</Label>
-            </div>
-          </SidebarHeader>
+          <SidebarHeader />
           <SidebarGroupContent>
             <SidebarMenu>
               {items.map((item) => (

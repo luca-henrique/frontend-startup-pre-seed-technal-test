@@ -5,7 +5,7 @@ import { zodResolver } from "@hookform/resolvers/zod";
 import { useFieldArray, useForm } from "react-hook-form";
 import { orderSchema } from "./validations";
 import { useEffect } from "react";
-import { useOrderStore } from "@/app/orderStore";
+import { useOrderStore } from "@/store/order";
 
 
 export const useOrderForm = () => {
