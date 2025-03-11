@@ -34,7 +34,6 @@ export default function RootLayout({
           <QueryClientProviderCustom>
             <AppSidebar />
             <main className="w-full px-16 pt-8">
-              <SidebarTrigger />
               {children}
             </main>
           </QueryClientProviderCustom>
