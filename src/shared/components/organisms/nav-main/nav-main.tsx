@@ -1,6 +1,5 @@
 "use client"
 
-import { type LucideIcon } from "lucide-react"
 
 import { Collapsible, CollapsibleContent, CollapsibleTrigger } from "@/components/ui/collapsible"
 import {
@@ -13,13 +12,15 @@ import {
   SidebarMenuSubItem,
 } from "@/components/ui/sidebar"
 
+import Image from "next/image"
+
 export function NavMain({
   items,
 }: {
   items: {
     title: string
     url: string
-    icon?: LucideIcon
+    icon?: string
     isActive?: boolean
     items?: {
       title: string
@@ -34,8 +35,10 @@ export function NavMain({
           <SidebarMenuItem>
             <CollapsibleTrigger asChild>
               <SidebarMenuButton tooltip={item.title}>
-                {item.icon && <item.icon />}
-                <span className="font-semibold text-sm text-[#414552]">{item.title}</span>
+                <a href={item.url} className="flex flex-row">
+                  <Image src={`/icons/${item.icon}.svg`} alt="src" width={15} height={15} />
+                  <span className="font-semibold text-sm text-[#414552]">{item.title}</span>
+                </a>
               </SidebarMenuButton>
             </CollapsibleTrigger>
             <CollapsibleContent>
@@ -43,8 +46,8 @@ export function NavMain({
                 {item.items?.map((subItem) => (
                   <SidebarMenuSubItem key={subItem.title}>
                     <SidebarMenuSubButton asChild>
-                      <a href={subItem.url}>
-                        <span className="font-semibold text-sm text-[#FF0000]">{subItem.title}</span>
+                      <a href={item.url}>
+                        <span className="font-semibold text-sm text-[#414552]">{subItem.title}</span>
                       </a>
                     </SidebarMenuSubButton>
                   </SidebarMenuSubItem>

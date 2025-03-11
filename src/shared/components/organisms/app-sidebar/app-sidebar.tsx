@@ -6,53 +6,26 @@ import {
   SidebarGroup,
   SidebarGroupContent,
   SidebarMenu,
-  SidebarMenuButton,
-  SidebarMenuItem,
 } from "@/components/ui/sidebar"
 
-import Image from "next/image"
 
-import {
-  SquareTerminal,
-} from "lucide-react"
+
 import { NavMain as CollapseMenu } from "@/shared/components/organisms/nav-main/nav-main"
 import { SidebarHeader } from "../../molecules/sidebar-header/sidebar-header"
-
-
-const items = [
-  {
-    title: "Pagina Inicial",
-    url: "#",
-    icon: 'appointment-icon',
-  },
-  {
-    title: "Clientes",
-    url: "#",
-    icon: 'client-icon',
-  },
-  {
-    title: "Agenda",
-    url: "#",
-    icon: 'appointment-icon',
-  },
-  {
-    title: "Cadastros",
-    url: "#",
-    icon: 'order-service-icon',
-  },
-]
+import { SidebarMenuList } from "../../molecules/sidebar-menu-list/sidebar-menu-list"
 
 const data = {
   navMain: [
     {
       title: "Cadastros",
       url: "#",
-      icon: SquareTerminal,
+      icon: 'order-service-icon',
       isActive: true,
       items: [
         {
           title: "Ordem de serviço",
           url: "#",
+          icon: 'order-service-icon'
         },
 
       ],
@@ -66,18 +39,9 @@ export function AppSidebar() {
       <SidebarContent>
         <SidebarGroup>
           <SidebarHeader />
-          <SidebarGroupContent>
+          <SidebarGroupContent className="mt-16">
             <SidebarMenu>
-              {items.map((item) => (
-                <SidebarMenuItem key={item.title}>
-                  <SidebarMenuButton asChild>
-                    <a href={item.url}>
-                      <Image src={`/icons/${item.icon}.svg`} alt="src" width={15} height={15} />
-                      <span className="font-semibold text-sm text-[#414552]">{item.title}</span>
-                    </a>
-                  </SidebarMenuButton>
-                </SidebarMenuItem>
-              ))}
+              <SidebarMenuList />
               <CollapseMenu items={data.navMain} />
             </SidebarMenu>
           </SidebarGroupContent>
