@@ -10,28 +10,11 @@ import {
 
 
 
-import { NavMain as CollapseMenu } from "@/shared/components/organisms/nav-main/nav-main"
 import { SidebarHeader } from "../../molecules/sidebar-header/sidebar-header"
 import { SidebarMenuList } from "../../molecules/sidebar-menu-list/sidebar-menu-list"
+import { SidebarMenuCollapse } from "../../molecules/sidebar-menu-collapse/sidebar-menu-collapse"
 
-const data = {
-  navMain: [
-    {
-      title: "Cadastros",
-      url: "#",
-      icon: 'order-service-icon',
-      isActive: true,
-      items: [
-        {
-          title: "Ordem de serviço",
-          url: "#",
-          icon: 'order-service-icon'
-        },
 
-      ],
-    },
-  ],
-}
 
 export function AppSidebar() {
   return (
@@ -42,7 +25,7 @@ export function AppSidebar() {
           <SidebarGroupContent className="mt-16">
             <SidebarMenu>
               <SidebarMenuList />
-              <CollapseMenu items={data.navMain} />
+              <SidebarMenuCollapse />
             </SidebarMenu>
           </SidebarGroupContent>
         </SidebarGroup>

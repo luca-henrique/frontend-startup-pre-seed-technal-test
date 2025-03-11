@@ -22,16 +22,19 @@ const items = [
 ]
 
 
+import Link from "next/link"
+
+
 export const SidebarMenuList = () => {
   return (
     <>
       {items.map((item) => (
         <SidebarMenuItem key={item.title}>
           <SidebarMenuButton asChild>
-            <a href={item.url}>
+            <Link href={item.url}>
               <Image src={`/icons/${item.icon}.svg`} alt="src" width={15} height={15} />
               <span className="font-semibold text-sm text-[#414552]">{item.title}</span>
-            </a>
+            </Link>
           </SidebarMenuButton>
         </SidebarMenuItem>
       ))}
