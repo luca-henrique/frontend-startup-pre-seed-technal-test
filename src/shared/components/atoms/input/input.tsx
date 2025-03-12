@@ -19,7 +19,7 @@ export const TextInput = ({ label = "", name, control, ...props }: TextInputProp
       control={control}
       render={({ field }) => (
         <div>
-          <Label>{label}</Label>
+          <Label className="mb-1.5 text-sm text-[#414552]">{label}</Label>
           <Input {...props} {...field} />
         </div>
       )}

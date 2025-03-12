@@ -22,8 +22,8 @@ export const useOrderForm = () => {
     defaultValues: {
       title: "",
       description: "",
-      additionalItems: [],
-      materials: [],
+      additionalItems: [{ name: "", quantity: "0" }],
+      materials: [{ name: "", quantity: "0" }],
       observations: "",
     },
   });

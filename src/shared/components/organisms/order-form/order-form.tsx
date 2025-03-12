@@ -13,18 +13,15 @@ export const OrderForm = () => {
 
 
   return (
-    <div className="flex flex-col min-w-[371px]">
-      <h2 className="mt-10 scroll-m-20 text-3xl font-semibold tracking-tight transition-colors first:mt-0">
+    <div className="flex flex-col max-w-[371px]">
+      <h1 className="mt-10 scroll-m-20 text-[28px] mb-2 tracking-tight transition-colors first:mt-0 text-[#414552] font-semibold">
         Nova Ordem de Serviço
-      </h2>
-      <TextInput control={control} label="Nome da Ordem de Serviço" name="title" />
-      <TextInputArea label="Descrição do Serviço" name="description" control={control} />
-      <div className="flex flex-row">
+      </h1>
+      <TextInput control={control} label="Nome da Ordem de Serviço" name="title" className="mb-6" />
+      <TextInputArea label="Descrição do Serviço" name="description" control={control} className="mb-6" />
 
-      </div>
-
-      <div>
-        <h2 className="mt-10 scroll-m-20 text-3xl font-semibold tracking-tight transition-colors first:mt-0">
+      <div className="flex flex-col mb-11">
+        <h2 className="mt-10 scroll-m-20 text-base mb-2 tracking-tight transition-colors first:mt-0 text-[#FF0000] font-semibold">
           Items adicionais
         </h2>
         {fields.map((field, index) => (
@@ -33,14 +30,14 @@ export const OrderForm = () => {
             <TextInput label="Quantidade" control={control} name={`additionalItems.${index}.quantity`} />
           </div>
         ))}
-        <div className="flex flex-row">
-          <Button onClick={() => append({ name: "", quantity: "" })}>Adicionar Item</Button>
-          <Button>Texto Livre</Button>
+        <div className="flex flex-row mt-3.5 gap-2 ">
+          <Button className="w-[222px] bg-[#FF0004] hover:bg-[#FF0004]" onClick={() => append({ name: "", quantity: "" })}>Adicionar Item</Button>
+          <Button className="w-fit bg-[#FF0004] hover:bg-[#FF0004]">Texto Livre</Button>
         </div>
       </div>
 
-      <div>
-        <h2 className="mt-10 scroll-m-20 text-3xl font-semibold tracking-tight transition-colors first:mt-0">
+      <div className="flex flex-col mb-11">
+        <h2 className="mt-10 scroll-m-20 text-base mb-2 tracking-tight transition-colors first:mt-0 text-[#15BE53]  font-semibold">
           Materiais Complementares
         </h2>
         {materialsFields.map((field, index) => (
@@ -49,19 +46,21 @@ export const OrderForm = () => {
             <TextInput label="Quantidade" control={control} name={`materials.${index}.quantity`} />
           </div>
         ))}
-        <div className="flex flex-row">
-          <Button onClick={() => appendMaterials({ name: "", quantity: "" })}>Adicionar Material</Button>
-          <Button>Texto Livre</Button>
+        <div className="flex flex-row mt-3.5 gap-2">
+          <Button className="w-[222px] bg-[#15BE53] hover:bg-[#15BE53]" onClick={() => appendMaterials({ name: "", quantity: "" })}>Adicionar Material</Button>
+          <Button className="w-fit bg-[#15BE53] hover:bg-[#15BE53]">Texto Livre</Button>
         </div>
-        <div>
-          <TextInputArea name="observations" label="Observações ou Instruções Adicionais" control={control} />
-        </div>
-        <div className="flex flex-row justify-between">
-          <Button>Imprimir</Button>
-          <div>
-            <Button>Cancelar</Button>
-            <Button>Salvar</Button>
-          </div>
+      </div>
+
+      <div>
+        <TextInputArea name="observations" label="Observações ou Instruções Adicionais" control={control} />
+      </div>
+
+      <div className="flex flex-row justify-between mt-8">
+        <Button className="bg-[#fff] text-[#414552]  hover:bg-[#f3f3f3]">Imprimir</Button>
+        <div className="flex flex-row gap-2">
+          <Button className="bg-[#fff] text-[#414552] hover:bg-[#f3f3f3]">Cancelar</Button>
+          <Button className="bg-[#FF0004]">Salvar</Button>
         </div>
       </div>
     </div>

@@ -8,7 +8,7 @@ import { PreviewOrder } from "@/shared/components/organisms/preview-order/previe
 export default function OrderService() {
   return <div>
     <BreadCrumb />
-    <div className="flex flex-col">
+    <div className="flex flex-col mt-9">
       <div className="flex flex-row gap-7">
         <OrderForm />
         <PreviewOrder />

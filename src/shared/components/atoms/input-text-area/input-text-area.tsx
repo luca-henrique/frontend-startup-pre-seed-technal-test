@@ -18,7 +18,7 @@ export const TextInputArea = ({ label, name, control, ...props }: TextInputAreaP
       control={control}
       render={({ field }) => (
         <div>
-          <Label>{label}</Label>
+          <Label className="mb-1.5 text-sm text-[#414552]">{label}</Label>
           <Textarea {...props} {...field} />
         </div>
       )}
