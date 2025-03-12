@@ -19,3 +19,5 @@ export const orderSchema = z.object({
   ),
   observations: z.string().optional(),
 });
+
+export type OrderType = z.infer<typeof orderSchema>;

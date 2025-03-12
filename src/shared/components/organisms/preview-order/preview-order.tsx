@@ -1,11 +1,13 @@
 "use client"
 
-import { useOrderStore } from "@/store/order";
+import { useFormContext } from "react-hook-form";
+import { OrderType } from "../order-form/validations";
 
 export const PreviewOrder = () => {
-  const { title, description, additionalItems, materials, observations } = useOrderStore();
 
-  console.log(additionalItems)
+  const { watch } = useFormContext<OrderType>()
+
+  const { title, description, additionalItems, materials, observations } = watch()
 
   return (
     <div className="w-full p-4 border-l bg-gray-100">
@@ -18,15 +20,15 @@ export const PreviewOrder = () => {
 
         <h4 className="font-bold text-red-500">Itens Adicionais</h4>
         <ul>
-          {additionalItems.map((item, index) => (
-            <li key={index}>{item.name} - {item.quantity}</li>
+          {additionalItems.map((item) => (
+            <li key={item.name}>{item.name} - {item.quantity}</li>
           ))}
         </ul>
 
         <h4 className="font-bold text-green-600">Materiais Complementares</h4>
         <ul>
-          {materials.map((item, index) => (
-            <li key={index}>{item.name} - {item.quantity}</li>
+          {materials.map((item) => (
+            <li key={item.name}>{item.name} - {item.quantity}</li>
           ))}
         </ul>
 

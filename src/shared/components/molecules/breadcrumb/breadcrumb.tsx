@@ -1,7 +1,7 @@
 'use client'
 
 
-import { Breadcrumb, BreadcrumbList, BreadcrumbItem, BreadcrumbLink, BreadcrumbSeparator, BreadcrumbPage } from "@/components/ui/breadcrumb"
+import { Breadcrumb, BreadcrumbList, BreadcrumbItem, BreadcrumbLink, BreadcrumbSeparator } from "@/components/ui/breadcrumb"
 
 import { usePathname } from 'next/navigation'
 
@@ -12,20 +12,18 @@ const labels: Record<string, string> = {
 
 export const BreadCrumb = () => {
   const pathname = usePathname()
-  const paths = pathname.split("/").filter(Boolean) // Remove strings vazias
+  const paths = pathname.split("/").filter(Boolean)
 
-  // Mapeia os paths para nomes amigáveis
   const breadcrumbs = paths.map((path, index) => {
     const href = `/${paths.slice(0, index + 1).join("/")}`
 
     return {
-      name: labels[path] || path, // Usa o nome amigável ou mantém o original
+      name: labels[path] || path,
       href,
       isLast: index === paths.length - 1,
     }
   })
 
-  console.log(breadcrumbs)
 
   return (
     <Breadcrumb>

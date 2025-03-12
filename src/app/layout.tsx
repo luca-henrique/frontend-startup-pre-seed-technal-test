@@ -1,5 +1,4 @@
 import type { Metadata } from "next";
-import { QueryClientProviderCustom } from "@/providers/query-client";
 import { SidebarProvider } from "@/components/ui/sidebar";
 import { AppSidebar } from "@/shared/components/organisms/app-sidebar/app-sidebar";
 
@@ -21,12 +20,10 @@ export default function RootLayout({
         className={`antialiased`}
       >
         <SidebarProvider>
-          <QueryClientProviderCustom>
-            <AppSidebar />
-            <main className="w-full px-16 pt-8">
-              {children}
-            </main>
-          </QueryClientProviderCustom>
+          <AppSidebar />
+          <main className="w-full px-16 pt-8">
+            {children}
+          </main>
         </SidebarProvider>
       </body>
     </html>

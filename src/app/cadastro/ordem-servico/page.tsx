@@ -1,18 +1,37 @@
+"use client"
 
 import { BreadCrumb } from "@/shared/components/molecules/breadcrumb/breadcrumb";
 
 import { OrderForm } from "@/shared/components/organisms/order-form/order-form";
+import { orderSchema, OrderType } from "@/shared/components/organisms/order-form/validations";
 import { PreviewOrder } from "@/shared/components/organisms/preview-order/preview-order";
+import { zodResolver } from "@hookform/resolvers/zod";
 
+
+import { FormProvider, useForm } from "react-hook-form";
 
 export default function OrderService() {
+  const methods = useForm<OrderType>({
+    resolver: zodResolver(orderSchema),
+    defaultValues: {
+      title: "",
+      description: "",
+      additionalItems: [],
+      materials: [],
+      observations: "",
+    },
+  });
+
+
   return <div>
     <BreadCrumb />
     <div className="flex flex-col mt-9">
-      <div className="flex flex-row gap-7">
-        <OrderForm />
-        <PreviewOrder />
-      </div>
+      <FormProvider {...methods}>
+        <div className="flex flex-row gap-7">
+          <OrderForm />
+          <PreviewOrder />
+        </div>
+      </FormProvider>
     </div>
   </div>
 }
