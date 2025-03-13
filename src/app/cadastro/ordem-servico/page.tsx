@@ -1,4 +1,4 @@
-"use client"
+'use client'
 
 import { BreadCrumb } from "@/shared/components/molecules/breadcrumb/breadcrumb";
 

@@ -7,16 +7,15 @@ import { TextInput } from "../../atoms/input/input"
 import { CheckBox } from "../../atoms/checkbox/checkbox"
 import { useFieldArray, useFormContext } from "react-hook-form"
 
-import Image from "next/image"
+
 import { OrderType } from "./validations"
 
 import React from "react";
+import { ListItemForm } from "../../molecules/list-item-form/list-item-form"
 
 interface OrderFormProps {
   handlePrint: () => void
 }
-
-
 
 export const OrderForm = ({ handlePrint }: OrderFormProps) => {
   const { control, watch } = useFormContext<OrderType>()
@@ -54,15 +53,9 @@ export const OrderForm = ({ handlePrint }: OrderFormProps) => {
           <TextInput label="Quantidade" control={control} name={`additionalItems.${changeLastFieldAdditionalItems}.quantity`} className="w-[73px]" />
         </div>
 
-        {additionalItems.map((item) => {
-          return (
-            <div key={`${item.name}-${item.quantity}`} className="flex flex-row items-center mt-3.5 w-full">
-              <Image src={'/icons/item.svg'} className="h-4 w-2" width={8} height={16} alt="" />
-              <label className="ml-1.5 w-full description">{item.name}</label>
-              <label className="w-16 inline-block whitespace-nowrap overflow-hidden">{item.quantity}</label>
-            </div>
-          )
-        })}
+        <ListItemForm items={additionalItems} />
+
+
         <div className="flex flex-row mt-3.5 gap-2 ">
           <Button className="w-[222px] bg-[#FF0004] hover:bg-[#FF0004]" onClick={() => append({ name: "", quantity: "" })} >Adicionar Item</Button>
           <Button className="bg-[#FF0004] hover:bg-[#FF0004] w-[140px]">Texto Livre</Button>
@@ -78,15 +71,7 @@ export const OrderForm = ({ handlePrint }: OrderFormProps) => {
           <TextInput label="Quantidade" control={control} name={`materials.${changeLastFieldMaterials}.quantity`} className="w-[73px]" />
         </div>
 
-        {materials.map((item) => {
-          return (
-            <div key={`${item.name}-${item.quantity}`} className="flex flex-row items-center mt-3.5">
-              <Image src={'/icons/item.svg'} className="h-4 w-2" width={8} height={16} alt="" />
-              <label className="ml-1.5 w-full description">{item.name}</label>
-              <label className="w-16 inline-block whitespace-nowrap overflow-hidden">{item.quantity}</label>
-            </div>
-          )
-        })}
+        <ListItemForm items={materials} />
         <div className="flex flex-row mt-3.5 gap-2">
           <Button className="w-[222px] bg-[#15BE53] hover:bg-[#15BE53]" onClick={() => appendMaterials({ name: "", quantity: "" })}>Adicionar Material</Button>
           <Button className="w-[140px] bg-[#15BE53] hover:bg-[#15BE53]">Texto Livre</Button>
