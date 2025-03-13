@@ -29,13 +29,12 @@ export const BreadCrumb = () => {
     <Breadcrumb>
       <BreadcrumbList>
         {breadcrumbs.map(({ name, href, isLast }) => (
-          <>
+          <div key={name} className="flex flex-row items-center">
             <BreadcrumbItem key={href} className={`text-sm text-[#414552] ${isLast ? "font-semibold" : ""}`}>
               <BreadcrumbLink href={href}>{name}</BreadcrumbLink>
             </BreadcrumbItem>
             {!isLast ? <BreadcrumbSeparator /> : null}
-          </>
-
+          </div>
         ))}
 
       </BreadcrumbList>

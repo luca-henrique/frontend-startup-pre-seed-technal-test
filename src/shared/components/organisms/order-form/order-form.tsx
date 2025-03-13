@@ -10,8 +10,15 @@ import { useFieldArray, useFormContext } from "react-hook-form"
 import Image from "next/image"
 import { OrderType } from "./validations"
 
+import React from "react";
 
-export const OrderForm = () => {
+interface OrderFormProps {
+  handlePrint: () => void
+}
+
+
+
+export const OrderForm = ({ handlePrint }: OrderFormProps) => {
   const { control, watch } = useFormContext<OrderType>()
 
   const { fields, append } = useFieldArray({
@@ -30,7 +37,7 @@ export const OrderForm = () => {
   const changeLastFieldMaterials = materialsFields.length > 0 ? materialsFields.length - 1 : 0;
 
   return (
-    <div className="flex flex-col max-w-[371px]  mb-[87px]">
+    <div className="flex flex-col max-w-[371px]">
       <h1 className="mt-10 scroll-m-20 text-[28px] mb-2 tracking-tight transition-colors first:mt-0 text-[#414552] font-semibold">
         Nova Ordem de Serviço
       </h1>
@@ -49,11 +56,10 @@ export const OrderForm = () => {
 
         {additionalItems.map((item) => {
           return (
-            <div key={`${item.name}-${item.quantity}`} className="flex flex-row items-center mt-3.5">
+            <div key={`${item.name}-${item.quantity}`} className="flex flex-row items-center mt-3.5 w-full">
               <Image src={'/icons/item.svg'} className="h-4 w-2" width={8} height={16} alt="" />
-              <label className="ml-1.5">{item.name}</label>
-              <span className="w-full border-dotted border-b-4 border-[#000] h-fit"> </span>
-              <label>{item.quantity}</label>
+              <label className="ml-1.5 w-full description">{item.name}</label>
+              <label className="w-16 inline-block whitespace-nowrap overflow-hidden">{item.quantity}</label>
             </div>
           )
         })}
@@ -76,9 +82,8 @@ export const OrderForm = () => {
           return (
             <div key={`${item.name}-${item.quantity}`} className="flex flex-row items-center mt-3.5">
               <Image src={'/icons/item.svg'} className="h-4 w-2" width={8} height={16} alt="" />
-              <label className="ml-1.5">{item.name}</label>
-              <span className="w-full border-dotted border-b-4 border-[#000] h-fit"> </span>
-              <label>{item.quantity}</label>
+              <label className="ml-1.5 w-full description">{item.name}</label>
+              <label className="w-16 inline-block whitespace-nowrap overflow-hidden">{item.quantity}</label>
             </div>
           )
         })}
@@ -93,7 +98,7 @@ export const OrderForm = () => {
       </div>
 
       <div className="flex flex-row justify-between mt-8 mb-4">
-        <Button className="bg-[#fff] text-[#414552]  hover:bg-[#f3f3f3] border-[##e6e6e6] border">Imprimir</Button>
+        <Button className="bg-[#fff] text-[#414552]  hover:bg-[#f3f3f3] border-[##e6e6e6] border" onClick={() => handlePrint()}>Imprimir</Button>
         <div className="flex flex-row gap-2">
           <Button className="bg-[#fff] text-[#414552] hover:bg-[#f3f3f3] border-[##e6e6e6] border">Cancelar</Button>
           <Button className="bg-[#FF0004]">Salvar</Button>
