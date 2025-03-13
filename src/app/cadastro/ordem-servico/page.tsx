@@ -1,10 +1,10 @@
 'use client'
 
-import { BreadCrumb } from "@/shared/components/molecules/breadcrumb/breadcrumb";
+import { BreadCrumb } from "@/components/molecules/breadcrumb/breadcrumb";
 
-import { OrderForm } from "@/shared/components/organisms/order-form/order-form";
-import { orderSchema, OrderType } from "@/shared/components/organisms/order-form/validations";
-import { PreviewOrder } from "@/shared/components/organisms/preview-order/preview-order";
+import { OrderForm } from "@/components/organisms/order-form/order-form";
+import { orderSchema, OrderType } from "@/components/organisms/order-form/validations";
+import { PreviewOrder } from "@/components/organisms/preview-order/preview-order";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useRef } from "react";
 

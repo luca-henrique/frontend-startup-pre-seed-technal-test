@@ -5,17 +5,17 @@ import { SidebarMenuButton, SidebarMenuItem } from "@/components/ui/sidebar"
 const items = [
   {
     title: "Pagina Inicial",
-    url: "#",
+    url: "/",
     icon: 'home-icon',
   },
   {
     title: "Clientes",
-    url: "#",
+    url: "/",
     icon: 'client-icon',
   },
   {
     title: "Agenda",
-    url: "#",
+    url: "/",
     icon: 'appointment-icon',
   },
 

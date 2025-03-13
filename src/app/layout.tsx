@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import { SidebarProvider } from "@/components/ui/sidebar";
-import { AppSidebar } from "@/shared/components/organisms/app-sidebar/app-sidebar";
+import { AppSidebar } from "@/components/organisms/app-sidebar/app-sidebar";
 
 import "./globals.css";
 

@@ -3,10 +3,13 @@
 import { useFormContext } from "react-hook-form";
 import Image from "next/image";
 
-import { OrderType } from "@/shared/components/organisms/order-form/validations";
+import { OrderType } from "@/components/organisms/order-form/validations";
+import { useUserStore } from "@/store/user";
 
 export const HeaderPreviewOrder = () => {
   const { watch } = useFormContext<OrderType>();
+
+  const { avatar } = useUserStore()
 
   const { title } = watch();
 
@@ -21,7 +24,7 @@ export const HeaderPreviewOrder = () => {
         </h3>
       </div>
       <Image
-        src="https://github.com/shadcn.png"
+        src={avatar}
         className="rounded-full"
         height={64}
         width={64}

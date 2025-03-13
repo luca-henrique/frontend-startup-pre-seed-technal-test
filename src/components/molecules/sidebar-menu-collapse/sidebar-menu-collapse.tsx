@@ -67,7 +67,7 @@ export const SidebarMenuCollapse = () => {
                 {item.items?.map((subItem) => (
                   <SidebarMenuSubItem key={subItem.title}>
                     <SidebarMenuSubButton asChild>
-                      <Link href={item.url} replace>
+                      <Link href={subItem.url} replace>
                         <span className="font-semibold text-sm text-[#FF0000]">{subItem.title}</span>
                       </Link>
                     </SidebarMenuSubButton>

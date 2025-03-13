@@ -5,9 +5,9 @@ import {
   SidebarContent,
   SidebarGroup,
   SidebarGroupContent,
-  SidebarMenu,
   SidebarMenuButton,
   SidebarMenuItem, SidebarHeader,
+  SidebarMenu,
 } from "@/components/ui/sidebar"
 import { Avatar, AvatarFallback, AvatarImage } from "./avatar"
 import { Label } from "./label"
@@ -51,7 +51,7 @@ const data = {
       items: [
         {
           title: "Ordem de serviço",
-          url: "#",
+          url: "/cadastro/ordem-servico",
         },
 
       ],
@@ -85,7 +85,6 @@ export function AppSidebar() {
                   </SidebarMenuButton>
                 </SidebarMenuItem>
               ))}
-              <CollapseMenu items={data.navMain} />
             </SidebarMenu>
           </SidebarGroupContent>
         </SidebarGroup>
